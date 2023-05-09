@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    scroll-behavior: smooth;
+}
+
+.main_Rotenx_Tool {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 100%;
+    max-width: 300px;
+    height: 450px;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: white;
+    border: .8px solid rgba(50, 50, 93, 0.25);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    overflow: hidden;
+}
+
+.main_Rotenx_Tool_Header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 40px;
+    border-bottom: .8px solid #222;
+    padding: 4px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_Rotenx_Tool_Heading {
+    position: relative;
+    width: fit-content;
+    height: auto;
+    padding: 2px 4px;
+}
+
+.main_Rotenx_Tool_Heading h1 {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.main_Rotenx_Tool_Menu {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main_Rotenx_Tool_Menu_Move {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    background-color: #19cf54;
+    border-radius: 50%;
+    cursor: move;
+}
+
+.main_Rotenx_Tool_Menu_Minimize {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    background-color: #fcb83d;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.main_Rotenx_Tool_Menu_Close {
+    position: relative;
+    width: 15px;
+    height: 15px;
+    background-color: #f66151;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.main_Rotenx_Tool_Main_Container {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 40px);
+    padding: 5px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.main_Rotenx_Tool_Main_Container::-webkit-scrollbar {
+    width: 4px;
+    background-color: white;
+}
+.main_Rotenx_Tool_Main_Container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    width: 2px;
+    background-color: rgba(50, 50, 93, 0.25);
+}
+/* image */
+.main_Rotenx_Tool_Main_Container_Image {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 5px auto;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    overflow: hidden;
+}
+
+.main_Rotenx_Tool_Main_Container_Image img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* input */
+.main_Rotenx_Tool_Main_Container_Input {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    margin: 5px auto;
+
+}
+
+/* input title */
+.main_Rotenx_Tool_Main_Container_Input_Title {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 2px;
+    margin: 5px auto;
+}
+.main_Rotenx_Tool_Main_Container_Input_Title label{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: .7;
+    margin: 2px auto;
+}
+.main_Rotenx_Tool_Main_Container_Input_Title input{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    margin: 2px auto;
+    font-family: 'Ubuntu', sans-serif;
+    opacity: .8;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+
+
+/* input desc */
+.main_Rotenx_Tool_Main_Container_Input_Desc {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 2px;
+    margin: 5px auto;
+}
+.main_Rotenx_Tool_Main_Container_Input_Desc label{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: .7;
+    margin: 2px auto;
+}
+.main_Rotenx_Tool_Main_Container_Input_Desc textarea{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    margin: 2px auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 5px;
+    resize: none;
+    font-family: 'Ubuntu', sans-serif;
+    opacity: .8;
+}
+
+
+/* input color */
+.main_Rotenx_Tool_Main_Container_Input_Color {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 2px;
+    margin: 5px auto;
+}
+.main_Rotenx_Tool_Main_Container_Input_Color label{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: .7;
+    margin: 2px auto;
+}
+.main_Rotenx_Tool_Main_Container_Input_Color_Div {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    overflow: hidden;
+    overflow-x: auto;
+    margin: 5px auto;
+    padding: 5px;
+}
+.main_Rotenx_Tool_Main_Container_Input_Color_Div p{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    margin: 0px 5px;
+    border-radius: 50%;
+    background: #19cf54;
+    overflow: hidden;
+}
+.main_Rotenx_Tool_Main_Container_Input_Color_Div p input{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+/* btn */
+.main_Rotenx_Tool_Main_Container_Input_Btn {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 2px;
+    margin: 5px auto;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+}
+.main_Rotenx_Tool_Main_Container_Input_Btn_close {
+    position: relative;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    text-transform: capitalize;
+    font-weight: 500;
+    cursor: pointer;
+}
+.main_Rotenx_Tool_Main_Container_Input_Btn_save {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 7px 15px;
+    color: #6677CC;
+    background-color: #EFF2FC;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+}

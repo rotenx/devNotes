@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+    <div class="main_Rotenx_Tool" id="main">
+        <div class="main_Rotenx_Tool_Header">
+            <div class="main_Rotenx_Tool_Heading">
+                <!-- heading -->
+                <h1>Roten.X DevTool</h1>
+            </div>
+            <div class="main_Rotenx_Tool_Menu">
+                <div title="move" class="main_Rotenx_Tool_Menu_Move" id="move">
+                </div>
+                <div title="minimize" class="main_Rotenx_Tool_Menu_Minimize" id="minimize">
+                </div>
+                <div title="close" class="main_Rotenx_Tool_Menu_Close">
+                </div>
+            </div>
+        </div>
+        <div class="main_Rotenx_Tool_Main_Container">
+            <div class="main_Rotenx_Tool_Main_Container_Image">
+                <!-- Image -->
+                <img src="../images/icon32.png" alt="testing image">
+            </div>
+            <div class="main_Rotenx_Tool_Main_Container_Input">
+                <!-- Input -->
+                <div class="main_Rotenx_Tool_Main_Container_Input_Title">
+                    <!-- title -->
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Enter Title For Notes...">
+                </div>
+                
+                <div class="main_Rotenx_Tool_Main_Container_Input_Color">
+                    <!-- color selection -->
+                    <label for="Color">Note Color</label>
+                    <div class="main_Rotenx_Tool_Main_Container_Input_Color_Div">
+                        <p title="Yellow" data-color="#FFFAA3" style="background-color:  #FFFAA3;"><input type="radio" name="color" id="#FFFAA3"></p>
+                        <p title="Gray" data-color="#D9D9D9" style="background-color:  #D9D9D9;"><input type="radio" name="color" id="#D9D9D9"></p>
+                        <p title="Pink" data-color="#FFBDF2" style="background-color:  #FFBDF2;"><input type="radio" name="color" id="#FFBDF2"></p>
+                        <p title="Orange" data-color="#FCD19C" style="background-color:  #FCD19C;"><input type="radio" name="color" id="#FCD19C"></p>
+                        <p title="Green" data-color="#AFF4C6" style="background-color:  #AFF4C6;"><input type="radio" name="color" id="#AFF4C6"></p>
+                        <p title="Blue" data-color="#B6ECF7" style="background-color:  #B6ECF7;"><input type="radio" name="color" id="#B6ECF7"></p>
+                        <p title="Violet" data-color="#E4CCFF" style="background-color:  #E4CCFF;"><input type="radio" name="color" id="#E4CCFF"></p>
+                    </div>
+                </div>
+                
+                <div class="main_Rotenx_Tool_Main_Container_Input_Desc">
+                    <!-- Description -->
+                    <label for="Description">Description</label>
+                    <textarea type="text" name="Description" rows="5" id="Description" placeholder="Enter Description To Your Notes..."></textarea>
+                </div>
+                
+                <div class="main_Rotenx_Tool_Main_Container_Input_Btn">
+                    <!-- buttons -->
+                    <button  class="main_Rotenx_Tool_Main_Container_Input_Btn_close">cancle</button>
+                    <button  class="main_Rotenx_Tool_Main_Container_Input_Btn_save">save</button>
+                </div>
+
+            </div>
+
+            
+        </div>
+
+
+
+    </div>
+    <script src="test.js"></script>
+</body>
+
+</html>
