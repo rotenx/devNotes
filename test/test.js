@@ -4,7 +4,7 @@
 //         console.log(e,"hold");
 //     }
 // });
-dragElement(document.getElementById("main"));
+dragElement(document.getElementById("main_Rotenx_Tool"));
 
 
 function dragElement(elmnt) {
@@ -55,16 +55,14 @@ function dragElement(elmnt) {
 //   minimize
 
 let minimize = document.getElementById("minimize");
-
 minimize.addEventListener("click",() => {
 })
 
 
 
 // input notes color selection
-
 $('.main_Rotenx_Tool_Main_Container_Input_Color_Div p').click(function() {
     var color = $(this).attr("data-color");
-    $('.main_Rotenx_Tool_Main_Container_Input_Color_Div p').css({"width":"20px","height":"20px","border":"none"})
-    $(this).css({"width":"25px","height":"25px","border":"1px solid "+color});
+    $('.main_Rotenx_Tool_Main_Container_Input_Color_Div p').css({"width":"20px","height":"20px","border":"none","box-shadow": "none"})
+    $(this).css({"width":"25px","height":"25px","border":"1px solid "+color,"box-shadow": "rgba(0, 0, 0, 0.2) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"});
 });

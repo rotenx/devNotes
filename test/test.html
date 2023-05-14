@@ -6,74 +6,116 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="test.css">
+    <link rel="stylesheet" href="../youtube/index.css">
 </head>
 
 <body>
-    <div class="main_Rotenx_Tool" id="main">
+
+    <div class="main_Rotenx_pen_tool" id="main_Rotenx_pen_tool_btn_ctrl" title="Roten.x Notes">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAERElEQVR4nO2be4hVVRSHP0erSVF6SS/tYU/K6F1UVlRgBFZgEZlDRWJ/xEQFmYUUWVBRSH9YZFlhIWhBUiGRWTRgDyxKCCwI7TG9LFPLTCzLiQX7wo/FOXvfSGHW6X5wuMPZv3tZa597195rrT3QoUOHDh06dAjEnvwPuRx4HVgPDACbgeXAZGAIDWZ3YFFyuu56DRhJQ3m2wuFNwF/u3rImfhMmOiefB8aksVHAbGCHjF9DgxgGrBbnXqp5wveJpo8GcbM49htwcI1uL+DvpNsKDKUB7AtskAmYVdD/KtoRNIDHxKEvgO6M9ljR2tLYRXDGA9vFqSsK+qdE+zINYLk49HZBe5JbDs+lAbu9gXSZYycW9H1OP4XA7AGsEYfmFfRXVmyQbDWYRFBmup3e6Iy2OwVHXSZbf38HDCcYB6QI3nLi1oJ+lmjXAeOAr+TeVALv9z8DdstoD3JPfFq6P0PuPUkgTpOdnF2XFPTPifYjWfcny/0lBGEI8I4YvrSgP1OSH3udUPOzmE8QpojRfwDHFCbrfdEvdiuIBsXrCMBwoF+MnlPQ94jWkp5DZOxOGVsfZRWYLUb/mLK6Osyhr0V/r4zt75KhmwjAGGCLGD29oL9ftN+4jG+BjK1OdYRBz2IxelUhhx8L/C76q2XsVLeCWAVp0HO2K2OdX9C/KNr3pCpkryuiLX1dwAdi9AsF/TkyWfakT68JiraCHEUAprlIflhhsj4U/TOZoPggARgJfC9G2yqQY7qr9BxYExTXpQrxoOdhMfrbQu3OJusH0d+RCYrXE4AjgG3/on7/iGjXpp1eVVDUXGBQ80pNJG9nsqxKVBUUd0QpgV3oKjZnFPSviv6tTFBcSACGAp+I0Zb357jI1fhOkLEbM7lAiO7OZhfJPcPcZM2VsVEuKN5DAPYGfhajrebX7mRtBPaTsTky1h8l25ubieSlyeqVsSNdULyKABwH/FkTyUutsE9dTXCpjL0b5QzAG2L0mwXt8a4VphndeW4FOYUAXCZGb0+9vhzLRG/7BWoSnqcJcp7nczH68YL+0kJGZ3HjAeDRKG3vXnFoQ+rztztZliuEpjslOS2Hbinob4+Y0bWbvvYXlj0rZP5S0d0JzQpxyDY1OeZHzOhyHCpZmm1a9sloT5ZCpu/uhOUGeaKWzeX2+ytrujuhWSBO3ZbR3SW6LVEyunZYJY5ZA7OKiW7HV4oTodgojo2u+d1vEk1fEwJfixHi2LaKZOUs5/yXheMv4RgrzlnZ2+8NtrrObSk3CMd4d7yF9IS1/9eaHMv8GscEcXJlal7+5Jz/GDichjLJpb8D7ppXOOsbnp4KpwdS7+7imvccnU51zdyJ14z0uZ6uZGPPrqom9TrHbXv7ROF/eNbWTNp/veykae4BTd3V53vXABe08Z5GTQDAtelsTrvlaqv83A08tBMv+7yqMwL2tTfHrR9Z+RP4BzxvG/yEP33CAAAAAElFTkSuQmCC"
+            alt="notes" />
+    </div>
+
+
+    <div class="main_Rotenx_Tool_minimize_container" id="main_Rotenx_Tool_minimize_container">
+        <p>Roten.x DevTool</p>
+        <img src="http://localhost:5500/images/uparrow.png" />
+    </div>
+
+
+    <div class="main_Rotenx_progress_bar_pen" id="main_Rotenx_progress_bar_pen">
+        <img src="http://localhost:5500/images/youtubepen.png" />
+    </div>
+
+
+
+    <div class="main_Rotenx_progress_bar_dot_item" id="main_Rotenx_progress_bar_dot_item">
+        <p class="main_Rotenx_progress_bar_dot_item_dot_main"></p>
+        <div class="main_Rotenx_progress_bar_dot_item_container" id="main_Rotenx_progress_bar_dot_item_container">
+            <div class="main_Rotenx_progress_bar_dot_item_container_header"
+                id="main_Rotenx_progress_bar_dot_item_container_header">
+                <p id="main_Rotenx_progress_bar_dot_item_container_header_p">Roten.X DevTool</p>
+                <div class="main_Rotenx_progress_bar_dot_item_container_header_icons"
+                    id="main_Rotenx_progress_bar_dot_item_container_header_icons">
+                    <p title="open link"><img src="http://localhost:5500/images/link.svg" /></p>
+                    <p title="edit note"><img src="http://localhost:5500/images/edit.svg" /></p>
+                    <p title="delete note"><img src="http://localhost:5500/images/delete.svg" /></p>
+                </div> 
+            </div>
+            <div class="main_Rotenx_progress_bar_dot_item_container_main"
+                id="main_Rotenx_progress_bar_dot_item_container_main">
+                <div class="main_Rotenx_Tool_Main_Container_Input_Title">
+                    <!-- title -->
+                    <p id="main_Rotenx_Tool_Main_Container_Input_Title_color"></p>
+                    <input type="text" readonly name="rotenx_title_input" id="rotenx_title_input">
+                </div>
+                <div class="main_Rotenx_Tool_Main_Container_Input_Desc">
+                    <!-- Description -->
+                    <textarea type="text" readonly name="Description" rows="5" id="Description"
+                        placeholder="Your Notes Description..."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main_Rotenx_Tool" id="main_Rotenx_Tool">
         <div class="main_Rotenx_Tool_Header">
             <div class="main_Rotenx_Tool_Heading">
                 <!-- heading -->
                 <h1>Roten.X DevTool</h1>
             </div>
             <div class="main_Rotenx_Tool_Menu">
-                <div title="move" class="main_Rotenx_Tool_Menu_Move" id="move">
+                <div title="move" class="main_Rotenx_Tool_Menu_Move" id="main_Rotenx_Tool_Menu_Move">
                 </div>
-                <div title="minimize" class="main_Rotenx_Tool_Menu_Minimize" id="minimize">
+                <div title="minimize" class="main_Rotenx_Tool_Menu_Minimize" id="main_Rotenx_Tool_Menu_Minimize">
                 </div>
-                <div title="close" class="main_Rotenx_Tool_Menu_Close">
+                <div title="close" class="main_Rotenx_Tool_Menu_Close" id="main_Rotenx_Tool_Menu_Close">
                 </div>
             </div>
         </div>
         <div class="main_Rotenx_Tool_Main_Container">
-            <div class="main_Rotenx_Tool_Main_Container_Image">
-                <!-- Image -->
-                <img src="../images/icon32.png" alt="testing image">
-            </div>
+
             <div class="main_Rotenx_Tool_Main_Container_Input">
                 <!-- Input -->
-                <div class="main_Rotenx_Tool_Main_Container_Input_Title">
-                    <!-- title -->
-                    <label for="title">Title</label>
-                    <input type="text" name="title" id="title" placeholder="Enter Title For Notes...">
-                </div>
-                
                 <div class="main_Rotenx_Tool_Main_Container_Input_Color">
                     <!-- color selection -->
-                    <label for="Color">Note Color</label>
                     <div class="main_Rotenx_Tool_Main_Container_Input_Color_Div">
-                        <p title="Yellow" data-color="#FFFAA3" style="background-color:  #FFFAA3;"><input type="radio" name="color" id="#FFFAA3"></p>
-                        <p title="Gray" data-color="#D9D9D9" style="background-color:  #D9D9D9;"><input type="radio" name="color" id="#D9D9D9"></p>
-                        <p title="Pink" data-color="#FFBDF2" style="background-color:  #FFBDF2;"><input type="radio" name="color" id="#FFBDF2"></p>
-                        <p title="Orange" data-color="#FCD19C" style="background-color:  #FCD19C;"><input type="radio" name="color" id="#FCD19C"></p>
-                        <p title="Green" data-color="#AFF4C6" style="background-color:  #AFF4C6;"><input type="radio" name="color" id="#AFF4C6"></p>
-                        <p title="Blue" data-color="#B6ECF7" style="background-color:  #B6ECF7;"><input type="radio" name="color" id="#B6ECF7"></p>
-                        <p title="Violet" data-color="#E4CCFF" style="background-color:  #E4CCFF;"><input type="radio" name="color" id="#E4CCFF"></p>
+                        <p class="main_Rotenx_Tool_Main_Container_Input_Color_Div_p" title="Yellow" data-color="#FFFAA3"
+                            style="background-color:  #FFFAA3;"><input type="radio" name="color" id="#FFFAA3"></p>
+                        <p class="main_Rotenx_Tool_Main_Container_Input_Color_Div_p" title="Gray" data-color="#D9D9D9"
+                            style="background-color:  #D9D9D9;"><input type="radio" name="color" id="#D9D9D9"></p>
+                        <p class="main_Rotenx_Tool_Main_Container_Input_Color_Div_p" title="Pink" data-color="#FFBDF2"
+                            style="background-color:  #FFBDF2;"><input type="radio" name="color" id="#FFBDF2"></p>
+                        <p class="main_Rotenx_Tool_Main_Container_Input_Color_Div_p" title="Orange" data-color="#FCD19C"
+                            style="background-color:  #FCD19C;"><input type="radio" name="color" id="#FCD19C"></p>
+                        <p class="main_Rotenx_Tool_Main_Container_Input_Color_Div_p" title="Green" data-color="#AFF4C6"
+                            style="background-color:  #AFF4C6;"><input type="radio" name="color" id="#AFF4C6"></p>
                     </div>
                 </div>
-                
+                <div class="main_Rotenx_Tool_Main_Container_Input_Title">
+                    <!-- title -->
+                    <p id="main_Rotenx_Tool_Main_Container_Input_Title_color"></p>
+                    <input type="text" readonly name="rotenx_title_input" id="rotenx_title_input">
+                </div>
                 <div class="main_Rotenx_Tool_Main_Container_Input_Desc">
                     <!-- Description -->
-                    <label for="Description">Description</label>
-                    <textarea type="text" name="Description" rows="5" id="Description" placeholder="Enter Description To Your Notes..."></textarea>
+                    <textarea type="text" name="Description" rows="5" id="Description"
+                        placeholder="Enter Description To Your Notes..."></textarea>
                 </div>
-                
                 <div class="main_Rotenx_Tool_Main_Container_Input_Btn">
                     <!-- buttons -->
-                    <button  class="main_Rotenx_Tool_Main_Container_Input_Btn_close">cancle</button>
-                    <button  class="main_Rotenx_Tool_Main_Container_Input_Btn_save">save</button>
+                    <button
+                        class="main_Rotenx_Tool_Main_Container_Input_Btn_close main_Rotenx_Tool_Menu_Close">cancle</button>
+                    <button class="main_Rotenx_Tool_Main_Container_Input_Btn_save">save</button>
                 </div>
-
             </div>
-
-            
         </div>
-
-
-
     </div>
-    <script src="test.js"></script>
+    <!-- <script src="/youtube/index.js"></script> -->
 </body>
 
 </html>
