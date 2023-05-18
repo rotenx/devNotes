@@ -1,19 +1,22 @@
 const image_Logo = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAERElEQVR4nO2be4hVVRSHP0erSVF6SS/tYU/K6F1UVlRgBFZgEZlDRWJ/xEQFmYUUWVBRSH9YZFlhIWhBUiGRWTRgDyxKCCwI7TG9LFPLTCzLiQX7wo/FOXvfSGHW6X5wuMPZv3tZa597195rrT3QoUOHDh06dAjEnvwPuRx4HVgPDACbgeXAZGAIDWZ3YFFyuu56DRhJQ3m2wuFNwF/u3rImfhMmOiefB8aksVHAbGCHjF9DgxgGrBbnXqp5wveJpo8GcbM49htwcI1uL+DvpNsKDKUB7AtskAmYVdD/KtoRNIDHxKEvgO6M9ljR2tLYRXDGA9vFqSsK+qdE+zINYLk49HZBe5JbDs+lAbu9gXSZYycW9H1OP4XA7AGsEYfmFfRXVmyQbDWYRFBmup3e6Iy2OwVHXSZbf38HDCcYB6QI3nLi1oJ+lmjXAeOAr+TeVALv9z8DdstoD3JPfFq6P0PuPUkgTpOdnF2XFPTPifYjWfcny/0lBGEI8I4YvrSgP1OSH3udUPOzmE8QpojRfwDHFCbrfdEvdiuIBsXrCMBwoF+MnlPQ94jWkp5DZOxOGVsfZRWYLUb/mLK6Osyhr0V/r4zt75KhmwjAGGCLGD29oL9ftN+4jG+BjK1OdYRBz2IxelUhhx8L/C76q2XsVLeCWAVp0HO2K2OdX9C/KNr3pCpkryuiLX1dwAdi9AsF/TkyWfakT68JiraCHEUAprlIflhhsj4U/TOZoPggARgJfC9G2yqQY7qr9BxYExTXpQrxoOdhMfrbQu3OJusH0d+RCYrXE4AjgG3/on7/iGjXpp1eVVDUXGBQ80pNJG9nsqxKVBUUd0QpgV3oKjZnFPSviv6tTFBcSACGAp+I0Zb357jI1fhOkLEbM7lAiO7OZhfJPcPcZM2VsVEuKN5DAPYGfhajrebX7mRtBPaTsTky1h8l25ubieSlyeqVsSNdULyKABwH/FkTyUutsE9dTXCpjL0b5QzAG2L0mwXt8a4VphndeW4FOYUAXCZGb0+9vhzLRG/7BWoSnqcJcp7nczH68YL+0kJGZ3HjAeDRKG3vXnFoQ+rztztZliuEpjslOS2Hbinob4+Y0bWbvvYXlj0rZP5S0d0JzQpxyDY1OeZHzOhyHCpZmm1a9sloT5ZCpu/uhOUGeaKWzeX2+ytrujuhWSBO3ZbR3SW6LVEyunZYJY5ZA7OKiW7HV4oTodgojo2u+d1vEk1fEwJfixHi2LaKZOUs5/yXheMv4RgrzlnZ2+8NtrrObSk3CMd4d7yF9IS1/9eaHMv8GscEcXJlal7+5Jz/GDichjLJpb8D7ppXOOsbnp4KpwdS7+7imvccnU51zdyJ14z0uZ6uZGPPrqom9TrHbXv7ROF/eNbWTNp/veykae4BTd3V53vXABe08Z5GTQDAtelsTrvlaqv83A08tBMv+7yqMwL2tTfHrR9Z+RP4BzxvG/yEP33CAAAAAElFTkSuQmCC"
-var video = document.getElementsByTagName("video")[0];
-console.log(video);
+
 
 function createElementFromHTML(htmlString) {
-  var div = document.createElement('div');
-  div.innerHTML = htmlString.trim();
+    var div = document.createElement('div');
+    div.innerHTML = htmlString.trim();
 
-  // Change this to div.childNodes to support multiple top-level nodes.
-  return div.firstChild;
+    // Change this to div.childNodes to support multiple top-level nodes.
+    return div.firstChild;
 }
 function Init() {
-  // init html 
-  var html = ` <div class="main_Rotenx_pen_tool" id="main_Rotenx_pen_tool_btn_ctrl" title="Roten.x Notes">
-  <img src="${image_Logo}" alt="notes"/>
+    // init html 
+
+    var selection_html = `
+<div class="main_Rotenx_selection_container" id="main_Rotenx_selection_container">
+    <p id="main_Rotenx_selection_container_edit"><img src="${image_Logo}"></img>
+    <p id="main_Rotenx_selection_container_speak"><img src="${image_Logo}"></img>
 </div>`;
+
 
   //container html
   var htmlContainer = `<div class="main_Rotenx_Tool" id="main_Rotenx_Tool">
@@ -73,45 +76,26 @@ function Init() {
 <img src="http://localhost:5500/images/uparrow.png" />
 </div>`
 
-  var progress_bar_pen_html = `    <div class="main_Rotenx_progress_bar_pen" id="main_Rotenx_progress_bar_pen">
-  <img src="http://localhost:5500/images/youtubepen.png" />
-</div>`
-
-  var selection_html = `
-<div class="main_Rotenx_selection_container" id="main_Rotenx_selection_container">
-    <p><img src="http://localhost:5500/images/edit.svg"></img>
-    <p><img src="http://localhost:5500/images/edit.svg"></img>
-</div>`;
-
-  document.getElementsByClassName("ytp-progress-bar-container")[0].appendChild(createElementFromHTML(progress_bar_pen_html))
-
-  document.getElementsByTagName("html")[0].appendChild(createElementFromHTML(minimizeHtml))
-  // create container
-  document.getElementsByTagName("html")[0].appendChild(createElementFromHTML(htmlContainer))
-  document.getElementsByTagName("html")[0].appendChild(createElementFromHTML(selection_html))
-  // create html in youtube icon
-  document.getElementsByClassName("ytp-left-controls")[0].appendChild(createElementFromHTML(html))
+    document.getElementsByTagName("body")[0].appendChild(createElementFromHTML(selection_html))
+    document.getElementsByTagName("html")[0].appendChild(createElementFromHTML(minimizeHtml))
+    // create container
+    document.getElementsByTagName("html")[0].appendChild(createElementFromHTML(htmlContainer))
 }
-
 Init();
 
 
-// event listner for pen button
-// #main_Rotenx_pen_tool_btn_ctrl
-//unminimize 
-// main_Rotenx_Tool_minimize_container
+
+
 var unMinimize = document.getElementById("main_Rotenx_Tool_minimize_container");
 var Minimize = document.getElementById("main_Rotenx_Tool_Menu_Minimize");
-var pen_btn = document.getElementById("main_Rotenx_pen_tool_btn_ctrl");
 var cls_Btn_Container = document.getElementsByClassName("main_Rotenx_Tool_Menu_Close")[0];
 var cancle_Btn_Container = document.getElementsByClassName("main_Rotenx_Tool_Menu_Close")[1];
-
-
-pen_btn.addEventListener("click", () => {
-  // adding data in container field
-  document.getElementById("main_Rotenx_Tool").style.display = "block";
-  video.pause();
+var select_pen = document.getElementById("main_Rotenx_selection_container_edit");
+select_pen.addEventListener("click",() => {
+    document.getElementById("main_Rotenx_Tool").style.display = "block"
 })
+
+
 Minimize.addEventListener("click", () => {
   // adding data in container field
   document.getElementById("main_Rotenx_Tool").style.display = "none";
@@ -140,13 +124,13 @@ cancle_Btn_Container.addEventListener("click", () => {
 var Notes_color = document.getElementsByClassName("main_Rotenx_Tool_Main_Container_Input_Color_Div_p");
 
 var AddEventOnNotesColor = function () {
+    console.log("saa");
   var attribute = this.getAttribute("data-color");
   document.getElementById(`main_Rotenx_Tool_Main_Container_Input_Title_color`).style.background = `${attribute}`;
 };
 for (var i = 0; i < Notes_color.length; i++) {
   Notes_color[i].addEventListener('click', AddEventOnNotesColor, false);
 };
-
 
 // drag container code
 dragElement(document.getElementById("main_Rotenx_Tool"));
@@ -196,36 +180,51 @@ function dragElement(elmnt) {
 
 
 
-// progress bar 
-var ProgressBar = document.querySelector(".ytp-progress-bar");
-var selectPointer = document.querySelector("#main_Rotenx_progress_bar_pen");
-var globalSelectedTime = null;
-selectPointer.addEventListener("click", () => {
-  // adding data in container field
-  selectPointer.style.display = "none"
-  document.getElementById("main_Rotenx_Tool").style.display = "block";
-  video.pause();
-})
-ProgressBar.addEventListener("mousemove", showSelectorElement);
-// select function most important
-function showSelectorElement(event) {
-  setTimeout(() => {
-    const progressOffset = event.offsetX;
-    const width = video.offsetWidth;
-    const duration = video.duration;
-    const hoverGeneratedTime = (progressOffset / width) * duration;
-    const timestampPercentage = (hoverGeneratedTime / duration) * 100;
 
-    globalSelectedTime = hoverGeneratedTime;
-    const selectPointerHeight = Number(getComputedStyle(selectPointer).height.slice(0, -2));
-    selectPointer.style.left = `${timestampPercentage}%`;
-    selectPointer.style.top = `-${selectPointerHeight + 10}px`;
-    selectPointer.style.display = "block";
-  }, 0);
-}
-ProgressBar.addEventListener("mouseout", showSelectorElementhide);
-function showSelectorElementhide() {
-  setTimeout(() => {
-    selectPointer.style.display = "none";
-  }, 5000);
+
+
+
+// select all body 
+
+var selectBody = document.querySelectorAll("body");
+var selectPointer = document.querySelector("#main_Rotenx_selection_container");
+var globalSelectedText = null;
+var globalSelectedTextObject = null;
+
+// calling selector function 
+selectBody.forEach(elem => {
+    elem.addEventListener("mouseup", selectTextAreaShowMenu);
+})
+
+
+function selectTextAreaShowMenu(event) {
+    setTimeout(() => {
+        const selectedText = window.getSelection().toString().trim();
+        const selectedText2 = window.getSelection().toString();
+
+        if (selectedText.length > 0 && selectedText !== " ") {
+            const x = event.pageX;
+            const y = event.pageY;
+            const selectPointerWidth = Number(getComputedStyle(selectPointer).width.slice(0, -2));
+            const selectPointerHeight = Number(getComputedStyle(selectPointer).height.slice(0, -2));
+            selectPointer.style.left = `${x - selectPointerWidth * 0.5}px`;
+            selectPointer.style.top = `${y - selectPointerHeight * 1.25}px`;
+            selectPointer.style.display = "flex";
+            // selectPointer.setAttribute('id', "CureBook_Test_089985826699");
+            globalSelectedText = selectedText;
+            // insert data $(".mainContainer_CureBook_0458996sad8899asd9a5sd6").text(selectedText)
+        }
+        if (selectedText2) {
+            console.log(selectedText2);
+            const containerHtml = selectBody.innerHTML;
+            const start = containerHtml.indexOf(selectedText2);
+            const end = start + selectedText2.length;
+            const selectedData = {
+                text: selectedText2,
+                html: containerHtml.substring(start - 10, end + 10)
+            };
+
+            globalSelectedTextObject = selectedData;
+        }
+    }, 0);
 }

@@ -86,6 +86,7 @@
     height: 40px;
     z-index: 9999999999999999999999;
     box-sizing: border-box;
+    display: none;
 }
 .main_Rotenx_progress_bar_pen img{
     position: relative;
@@ -94,7 +95,43 @@
     box-sizing: border-box;
     object-fit: contain;
 }
+/* selection */
+.main_Rotenx_selection_container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: auto;
+    height: auto;
+    padding: 2px 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
 
+.main_Rotenx_selection_container p{
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 5px;
+    border-radius: 50%;
+    line-height: 0px;
+    cursor: pointer;
+}
+.main_Rotenx_selection_container p:hover{
+    background-color: #eee;
+
+}
+.main_Rotenx_selection_container p img{
+position: relative;
+width: 20px;
+height: 20px;
+object-fit: contain;
+}
 /* dot pen */
 .main_Rotenx_progress_bar_dot_item {
     position: relative;

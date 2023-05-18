@@ -1,0 +1,42 @@
+<div id="text-container" contenteditable="true">
+    This is some sample text.  This is some sample text.  This is some sample text.  This is some sample text.  the saved selection Select some text and refresh the page to see the saved selection.
+  </div>
+  
+  <script>
+    const container = document.getElementById('text-container');
+    
+    // Add an event listener to detect text selection
+    container.addEventListener('mouseup', () => {
+      const selection = window.getSelection();
+      const selectedText = selection.toString();
+      
+      // Save the selected text and surrounding HTML content to storage
+      if (selectedText) {
+        const containerHtml = container.innerHTML;
+        const start = containerHtml.indexOf(selectedText);
+        const end = start + selectedText.length;
+        const selectedData = {
+          text: selectedText,
+          html: containerHtml.substring(start - 10, end + 10)
+        };
+        localStorage.setItem('selectedData', JSON.stringify(selectedData));
+      }
+    });
+    
+    // Retrieve the saved text and surrounding HTML content and mark it
+    const savedData = JSON.parse(localStorage.getItem('selectedData'));
+    if (savedData) {
+      const containerHtml = container.innerHTML;
+      const start = containerHtml.indexOf(savedData.text);
+      const end = start + savedData.text.length;
+      const html = savedData.html.replace(savedData.text, '<span class="saved-text">' + savedData.text + '</span>');
+      container.innerHTML = containerHtml.substring(0, start - 10) + html + containerHtml.substring(end + 10);
+    }
+  </script>
+  
+  <style>
+    .saved-text {
+      background-color: yellow;
+    }
+  </style>
+  
