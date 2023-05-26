@@ -1,42 +1,23 @@
-<div id="text-container" contenteditable="true">
-    This is some sample text.  This is some sample text.  This is some sample text.  This is some sample text.  the saved selection Select some text and refresh the page to see the saved selection.
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis cum, modi nesciunt fuga repellendus, corrupti fugiat
+    quisquam incidunt voluptate ipsam totam. Incidunt deserunt ea voluptas enim maxime molestiae libero iusto!
   </div>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, fugiat? Beatae asperiores ratione deleniti optio,
+    sed eveniet, aspernatur provident blanditiis odit totam illum exercitationem ab consectetur voluptate nobis!
+    Laborum, et.</p>
+    <button id="highlight-button"></button>
   
-  <script>
-    const container = document.getElementById('text-container');
-    
-    // Add an event listener to detect text selection
-    container.addEventListener('mouseup', () => {
-      const selection = window.getSelection();
-      const selectedText = selection.toString();
-      
-      // Save the selected text and surrounding HTML content to storage
-      if (selectedText) {
-        const containerHtml = container.innerHTML;
-        const start = containerHtml.indexOf(selectedText);
-        const end = start + selectedText.length;
-        const selectedData = {
-          text: selectedText,
-          html: containerHtml.substring(start - 10, end + 10)
-        };
-        localStorage.setItem('selectedData', JSON.stringify(selectedData));
-      }
-    });
-    
-    // Retrieve the saved text and surrounding HTML content and mark it
-    const savedData = JSON.parse(localStorage.getItem('selectedData'));
-    if (savedData) {
-      const containerHtml = container.innerHTML;
-      const start = containerHtml.indexOf(savedData.text);
-      const end = start + savedData.text.length;
-      const html = savedData.html.replace(savedData.text, '<span class="saved-text">' + savedData.text + '</span>');
-      container.innerHTML = containerHtml.substring(0, start - 10) + html + containerHtml.substring(end + 10);
-    }
-  </script>
-  
-  <style>
-    .saved-text {
-      background-color: yellow;
-    }
-  </style>
-  
+</body>
+
+</html>

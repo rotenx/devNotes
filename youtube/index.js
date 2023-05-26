@@ -17,7 +17,8 @@ function Init() {
 
   //container html
   var htmlContainer = `<div class="main_Rotenx_Tool" id="main_Rotenx_Tool">
-  <div class="main_Rotenx_Tool_Header">
+
+  <div class="main_Rotenx_Tool_Header" id="main_Rotenx_Tool_Header">
       <div class="main_Rotenx_Tool_Heading">
           <!-- heading -->
           <h1>Roten.X DevTool</h1>
@@ -31,7 +32,11 @@ function Init() {
           </div>
       </div>
   </div>
-  <div class="main_Rotenx_Tool_Main_Container">
+  <div class="main_Rotenx_Login_contianer" id="main_Rotenx_Login_contianer">
+  <img src="https://devtool-eta.vercel.app/rotenx/images/LoginShowCon2.webp" alt="login" />
+  <p>login your account by clicking Roten.X DevTool Extension</p>
+</div>
+  <div class="main_Rotenx_Tool_Main_Container" id="main_Rotenx_Tool_Main_Container">
       
       <div class="main_Rotenx_Tool_Main_Container_Input">
           <!-- Input -->
@@ -52,35 +57,35 @@ function Init() {
           </div>
           <div class="main_Rotenx_Tool_Main_Container_Input_Title">
               <!-- title -->
-              <p id="main_Rotenx_Tool_Main_Container_Input_Title_color"></p>
+              <p id="main_Rotenx_Tool_Main_Container_Input_Title_color" style="background:rgb(244, 210, 145)"></p>
               <input type="text" readonly name="rotenx_title_input" id="rotenx_title_input">
           </div>
           <div class="main_Rotenx_Tool_Main_Container_Input_Desc">
               <!-- Description -->
-              <textarea type="text" name="Description" rows="5" id="Description"
+              <textarea type="text" name="Description" rows="5" id="main_Rotenx_Tool_Main_Container_Input_Desc"
                   placeholder="Enter Description To Your Notes..."></textarea>
           </div>
           <div class="main_Rotenx_Tool_Main_Container_Input_Btn">
               <!-- buttons -->
               <button class="main_Rotenx_Tool_Main_Container_Input_Btn_close main_Rotenx_Tool_Menu_Close">cancle</button>
-              <button class="main_Rotenx_Tool_Main_Container_Input_Btn_save">save</button>
+              <button class="main_Rotenx_Tool_Main_Container_Input_Btn_save"  id="main_Rotenx_Tool_Main_Container_Input_Btn_save">save</button>
           </div>
       </div>
   </div>
 </div>`
   var minimizeHtml = ` <div class="main_Rotenx_Tool_minimize_container" id="main_Rotenx_Tool_minimize_container">
 <p>Roten.x DevTool</p>
-<img src="http://localhost:5500/images/uparrow.png" />
+<img src="https://devtool-eta.vercel.app/rotenx/images/uparrow.png" />
 </div>`
 
   var progress_bar_pen_html = `    <div class="main_Rotenx_progress_bar_pen" id="main_Rotenx_progress_bar_pen">
-  <img src="http://localhost:5500/images/youtubepen.png" />
+  <img src="https://devtool-eta.vercel.app/rotenx/images/youtubepen.png" />
 </div>`
 
   var selection_html = `
 <div class="main_Rotenx_selection_container" id="main_Rotenx_selection_container">
-    <p><img src="http://localhost:5500/images/edit.svg"></img>
-    <p><img src="http://localhost:5500/images/edit.svg"></img>
+    <p><img src="https://devtool-eta.vercel.app/rotenx/images/edit.svg"></img>
+    <p><img src="https://devtool-eta.vercel.app/rotenx/images/edit.svg"></img>
 </div>`;
 
   document.getElementsByClassName("ytp-progress-bar-container")[0].appendChild(createElementFromHTML(progress_bar_pen_html))
@@ -91,11 +96,147 @@ function Init() {
   document.getElementsByTagName("html")[0].appendChild(createElementFromHTML(selection_html))
   // create html in youtube icon
   document.getElementsByClassName("ytp-left-controls")[0].appendChild(createElementFromHTML(html))
+
+  // color 
+  document.getElementById(`main_Rotenx_Tool_Main_Container_Input_Title_color`).style.background = `#f4d291`;
+
 }
 
 Init();
 
+function loginValidator() {
+  chrome.storage.local.get(['token'], function (result) {
+    if (!result.token) {
+      console.log(result.token);
 
+      var d = document.getElementById("main_Rotenx_Tool_Main_Container")
+      var l = document.getElementById("main_Rotenx_Login_contianer")
+      d.style.display = "none"
+      l.style.display = "flex"
+      // ("<p>login first by clicking roten.x devtool extention icon</p>")
+    } else {
+      console.log(result.token);
+      var d = document.getElementById("main_Rotenx_Tool_Main_Container")
+      var l = document.getElementById("main_Rotenx_Login_contianer")
+      d.style.display = "block"
+      l.style.display = "none"
+    }
+  });
+}
+loginValidator();
+
+
+function youtube_parser(url) {
+  var regExp = /^https?\:\/\/(?:www\.youtube(?:\-nocookie)?\.com\/|m\.youtube\.com\/|youtube\.com\/)?(?:ytscreeningroom\?vi?=|youtu\.be\/|vi?\/|user\/.+\/u\/\w{1,2}\/|embed\/|watch\?(?:.*\&)?vi?=|\&vi?=|\?(?:.*\&)?vi?=)([^#\&\?\n\/<>"']*)/i;
+  var match = url.match(regExp);
+  return (match && match[1].length == 11) ? match[1] : false;
+}
+function ScreenShot() {
+
+  // Get a reference to the canvas element
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+
+  // Set the canvas dimensions to match the video
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  // Get the image data from the canvas
+  const imageData = canvas.toDataURL('image/png');
+  console.log((imageData));
+  return imageData
+
+}
+
+
+
+var gtimeSave = null
+// data setter function
+const SetData = (time) => {
+  // init
+  gtimeSave = time
+  var CurrentTime = time
+  var minutes = Math.floor(CurrentTime / 60) + ":" + (CurrentTime % 60 ? CurrentTime % 60 : '00').toString().split(".")[0];
+  console.log(CurrentTime, minutes);
+  var title = document.getElementById("rotenx_title_input")
+  var titletext = document.getElementsByTagName("title")[0].innerText
+  title.value = `${minutes} | ${titletext}`
+  console.log(title.value);
+
+}
+
+
+
+
+const SaveData = (time) => {
+  // init
+  var CurrentTime = time
+  var minutes = Math.floor(CurrentTime / 60) + ":" + (CurrentTime % 60 ? CurrentTime % 60 : '00').toString().split(".")[0];
+  var title = document.getElementById("rotenx_title_input").value
+  var description = document.getElementById("main_Rotenx_Tool_Main_Container_Input_Desc").value
+  var color = document.getElementById(`main_Rotenx_Tool_Main_Container_Input_Title_color`).style.background
+  const duration = video.duration;
+  const timestampPercentage = (CurrentTime / duration) * 100;
+  chrome.storage.local.get(["token"], function (result) {
+    if (result.token) {
+
+      var payload = {
+        userToken: result.token,
+        color: `${color}`,
+        urlCode: youtube_parser(window.location.href),
+        title: title,
+        description: description,
+        type: "Youtube",
+        time: `${new Date()}`,
+        selectedData: {
+          time: CurrentTime,
+          url: `${window.location.href}`,
+          date: `${new Date().getDate()}`,
+          percentage: timestampPercentage
+        },
+        image: document.querySelector("meta[property='og:image']").getAttribute("content")
+      }
+
+      let headers = new Headers();
+
+      headers.append('Content-Type', 'application/json');
+      headers.append('Accept', 'application/json');
+
+      headers.append('Access-Control-Allow-Origin', '*');
+      headers.append('Access-Control-Allow-Credentials', 'true');
+
+      headers.append('GET', 'POST', 'OPTIONS');
+
+      fetch("https://jade-smoggy-barnacle.cyclic.app/create-notes", {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(payload)
+      }).then(response => response.json())
+        .then(data => {
+          // Process the JSON data received in the response
+          if (data.status) {
+            InitFetch();
+            document.getElementById("main_Rotenx_Tool").style.display = "none";
+            document.getElementById("main_Rotenx_Tool_Main_Container_Input_Desc").value = ""
+          }
+        })
+        .catch(error => {
+          // Handle any errors that occurred during the fetch request
+          console.error('Error:', error);
+        });
+    } else {
+      console.log("token not found");
+    }
+  })
+}
+
+var save = document.getElementById("main_Rotenx_Tool_Main_Container_Input_Btn_save")
+
+save.addEventListener("click", () => {
+  SaveData(gtimeSave)
+  // ScreenShot()
+})
 // event listner for pen button
 // #main_Rotenx_pen_tool_btn_ctrl
 //unminimize 
@@ -111,6 +252,7 @@ pen_btn.addEventListener("click", () => {
   // adding data in container field
   document.getElementById("main_Rotenx_Tool").style.display = "block";
   video.pause();
+  SetData(video.currentTime)
 })
 Minimize.addEventListener("click", () => {
   // adding data in container field
@@ -127,11 +269,14 @@ cls_Btn_Container.addEventListener("click", () => {
   // adding data in container field
   document.getElementById("main_Rotenx_Tool").style.display = "none";
   document.getElementById("main_Rotenx_Tool_minimize_container").style.display = "none";
+  document.getElementById("main_Rotenx_Tool_Main_Container_Input_Desc").value = ""
+
 })
 cancle_Btn_Container.addEventListener("click", () => {
   // adding data in container field
   document.getElementById("main_Rotenx_Tool").style.display = "none";
   document.getElementById("main_Rotenx_Tool_minimize_container").style.display = "none";
+  document.getElementById("main_Rotenx_Tool_Main_Container_Input_Desc").value = ""
 })
 
 
@@ -142,6 +287,7 @@ var Notes_color = document.getElementsByClassName("main_Rotenx_Tool_Main_Contain
 var AddEventOnNotesColor = function () {
   var attribute = this.getAttribute("data-color");
   document.getElementById(`main_Rotenx_Tool_Main_Container_Input_Title_color`).style.background = `${attribute}`;
+
 };
 for (var i = 0; i < Notes_color.length; i++) {
   Notes_color[i].addEventListener('click', AddEventOnNotesColor, false);
@@ -205,6 +351,7 @@ selectPointer.addEventListener("click", () => {
   selectPointer.style.display = "none"
   document.getElementById("main_Rotenx_Tool").style.display = "block";
   video.pause();
+  SetData(globalSelectedTime);
 })
 ProgressBar.addEventListener("mousemove", showSelectorElement);
 // select function most important

@@ -23,7 +23,7 @@ formD.addEventListener("submit", async (e) => {
             // message("all fields are required",false)
         } else {
             if (data.password) {
-                const FetchData = await fetch("http://localhost:8000/user", {
+                const FetchData = await fetch("https://jade-smoggy-barnacle.cyclic.app/user", {
                     method: "POST",
                     headers: {
                         'Accept': 'application/json',
@@ -49,6 +49,7 @@ formD.addEventListener("submit", async (e) => {
                     // }, null);
 
                     chrome.storage.local.set({ "token": FetchData.token }, function () {
+                        document.location.href = "popup.html"
                     });
                 }
 

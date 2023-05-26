@@ -23,7 +23,7 @@ formElement.addEventListener("submit", async (e) => {
             // message("all fields are required",false)
         } else {
             if (data.email != "" && data.password != "") {
-                const FetchData = await fetch("http://localhost:8000/login", {
+                const FetchData = await fetch("https://jade-smoggy-barnacle.cyclic.app/login", {
                     method: "POST",
                     headers: {
                         'Accept': 'application/json',
@@ -54,8 +54,8 @@ formElement.addEventListener("submit", async (e) => {
                 }
 
             } else {
-                log
-                // message("confirm password is not matching", false);
+                // log
+                // message("conf6irm password is not matching", false);
             }
         }
     } catch (error) {

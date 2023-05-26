@@ -20,7 +20,7 @@
                 "/youtube/index.css"
             ],
             "js": [
-                "/youtube/index.js"
+                "/youtube/index.js","/youtube/fetch.js"
             ]
         },
         {
@@ -31,7 +31,7 @@
                 "/youtube/index.css"
             ],
             "js": [
-                "content.js"
+                "content.js","contentFetch.js"
             ]
         }
     ],
